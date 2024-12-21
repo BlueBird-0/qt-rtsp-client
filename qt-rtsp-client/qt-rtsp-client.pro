@@ -9,7 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    Model/user.cpp \
+    Model/loginmodel.cpp \
     ModelView/loginviewmodel.cpp \
     ModelView/viewmodel.cpp \
     logindialog.cpp \
@@ -17,7 +17,7 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
-    Model/user.h \
+    Model/loginmodel.h \
     ModelView/loginviewmodel.h \
     ModelView/viewmodel.h \
     logindialog.h \

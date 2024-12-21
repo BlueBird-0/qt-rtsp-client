@@ -2,6 +2,7 @@
 #include "ui_logindialog.h"
 #include "logindialog.h"
 #include <QDebug>
+#include <QMessageBox>
 #include <iostream>
 
 LoginDialog::LoginDialog(QWidget *parent) :
@@ -11,6 +12,10 @@ LoginDialog::LoginDialog(QWidget *parent) :
     ui->setupUi(this);
 
     connect(&loginVM, &LoginViewModel::loginMessageChanged, this, &LoginDialog::updateAlertMsg);
+    connect(&loginVM, &LoginViewModel::loginSucess, this, [this]()->void{ this->accept(); });
+    connect(&loginVM, &LoginViewModel::loginFail, this, [parent]()->void{
+        QMessageBox::critical(parent, "로그인 실패", "로그인에 실패했습니다. 다시 시도해주세요.");
+    });
 
     //connect(&loginVM, &LoginViewModel::editChanged, this, &LoginDialog::on_editID_textChanged);
     //connect(ui->editID, &LoginDialog::on_editID_textChanged, this, &LoginViewModel::editChanged);
@@ -40,3 +45,9 @@ void LoginDialog::updateAlertMsg(const QString &message)
 {
     ui->labelMessage->setText(message);
 }
+
+void LoginDialog::on_btnLogin_clicked()
+{
+    emit loginVM.btnLoginClicked();
+}
+

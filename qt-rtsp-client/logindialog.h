@@ -23,6 +23,8 @@ private slots:
 
     void updateAlertMsg(const QString &message);
 
+    void on_btnLogin_clicked();
+
 private:
     Ui::LoginDialog *ui;
     LoginViewModel loginVM;

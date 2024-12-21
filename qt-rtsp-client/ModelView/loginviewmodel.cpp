@@ -1,5 +1,7 @@
 #include "loginviewmodel.h"
+#include "Model/loginmodel.h"
 #include <QDebug>
+#include <QCryptographicHash>
 
 LoginViewModel::LoginViewModel(QObject* parent) : ViewModel(parent)
 {
@@ -28,6 +30,12 @@ string LoginViewModel::validateLogin(const string id, const string pw)
     return "";
 }
 
+string LoginViewModel::hashSHA256(const QString& plainText)
+{
+    QByteArray hash = QCryptographicHash::hash(plainText.toUtf8(), QCryptographicHash::Sha256);
+    return hash.toStdString();
+}
+
 void LoginViewModel::editIDChanged(const QString &arg1)
 {
     m_id = arg1.toStdString();
@@ -40,4 +48,13 @@ void LoginViewModel::editPWChanged(const QString &arg1)
     m_pw = arg1.toStdString();
     QString msg = QString(validateLogin(m_id, m_pw).c_str());
     emit loginMessageChanged(msg);
+}
+
+void LoginViewModel::btnLoginClicked()
+{
+    bool success = LoginModel::login(m_id, hashSHA256(QString(m_pw.c_str())), std::string("localhost"));
+    if(success)
+        emit loginSucess();
+    else
+        emit loginFail();
 }

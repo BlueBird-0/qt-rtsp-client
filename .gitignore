@@ -9,6 +9,7 @@
 *.so.*
 *.dll
 *.dylib
+qt-rtsp-client/build
 
 # Qt-es
 object_script.*.Release
