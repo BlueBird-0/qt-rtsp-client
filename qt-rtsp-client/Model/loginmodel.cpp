@@ -17,7 +17,7 @@ bool LoginModel::login(string id, string pw_sha256_key, string server_address)
     qDebug() << pw_sha256_key;
     qDebug() << serverSHA256("1234");
 
-    if(id == string("qwer") && pw_sha256_key == serverSHA256("1234")){
+    if(id == string("qwerty") && pw_sha256_key == serverSHA256("1234")){
         qDebug() << "로그인 성공";
         return true;
     }
