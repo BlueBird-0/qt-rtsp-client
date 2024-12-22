@@ -2,20 +2,22 @@
 #include <cstring>
 #include <QDebug>
 #include <QCryptographicHash>
+#include <QByteArray>
 
 LoginModel::LoginModel() {}
 
 
 string LoginModel::serverSHA256(const string& plain)
 {
-    QByteArray hash = QCryptographicHash::hash(plain, QCryptographicHash::Sha256);
+    QByteArray plainArray = QString::fromStdString(plain).toUtf8();
+    QByteArray hash = QCryptographicHash::hash(plainArray, QCryptographicHash::Sha256);
     return hash.toStdString();
 }
 
 bool LoginModel::login(string id, string pw_sha256_key, string server_address)
 {
-    qDebug() << pw_sha256_key;
-    qDebug() << serverSHA256("1234");
+    qDebug() << QString::fromStdString(pw_sha256_key);
+    qDebug() << QString::fromStdString(serverSHA256("1234"));
 
     if(id == string("qwerty") && pw_sha256_key == serverSHA256("1234")){
         qDebug() << "로그인 성공";
