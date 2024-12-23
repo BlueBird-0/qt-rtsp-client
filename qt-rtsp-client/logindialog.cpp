@@ -3,7 +3,6 @@
 #include "logindialog.h"
 #include <QDebug>
 #include <QMessageBox>
-#include <iostream>
 #include <QHBoxLayout>
 #include <QAction>
 
@@ -12,19 +11,13 @@ LoginDialog::LoginDialog(QWidget *parent) :
     ui(new Ui::LoginDialog)
 {
     ui->setupUi(this);
+    loginVM = new LoginViewModel();
 
-    connect(&loginVM, &LoginViewModel::loginMessageChanged, this, &LoginDialog::updateAlertMsg);
-    connect(&loginVM, &LoginViewModel::loginSucess, this, [this]()->void{ this->accept(); });
-    connect(&loginVM, &LoginViewModel::loginFail, this, [parent]()->void{
+    connect(loginVM, &LoginViewModel::loginMessageChanged, this, &LoginDialog::updateAlertMsg);
+    connect(loginVM, &LoginViewModel::loginSucess, this, [this]()->void{ this->accept(); });
+    connect(loginVM, &LoginViewModel::loginFail, this, [parent]()->void{
         QMessageBox::critical(parent, "로그인 실패", "로그인에 실패했습니다. 다시 시도해주세요.");
     });
-
-    //connect(&loginVM, &LoginViewModel::editChanged, this, &LoginDialog::on_editID_textChanged);
-    //connect(ui->editID, &LoginDialog::on_editID_textChanged, this, &LoginViewModel::editChanged);
-
-//    loginVM.addObserveEvent([]()->void{
-//        ///ui->labelMessage->setText(alertMessage);
-//    });
 
     //Application Icon 추가
     this->setWindowIcon(QIcon(":/images/Resources/application_icon.png"));
@@ -52,13 +45,13 @@ LoginDialog::~LoginDialog()
 
 void LoginDialog::on_editID_textChanged(const QString &arg1)
 {
-    emit loginVM.editIDChanged(arg1);
+    emit loginVM->editIDChanged(arg1);
 }
 
 
 void LoginDialog::on_editPW_textChanged(const QString &arg1)
 {
-    emit loginVM.editPWChanged(arg1);
+    emit loginVM->editPWChanged(arg1);
 }
 
 void LoginDialog::updateAlertMsg(const QString &message)
@@ -68,6 +61,6 @@ void LoginDialog::updateAlertMsg(const QString &message)
 
 void LoginDialog::on_btnLogin_clicked()
 {
-    emit loginVM.btnLoginClicked();
+    emit loginVM->btnLoginClicked();
 }
 

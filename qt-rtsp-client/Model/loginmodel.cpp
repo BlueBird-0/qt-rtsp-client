@@ -20,10 +20,10 @@ bool LoginModel::login(string id, string pw_sha256_key, string server_address)
     qDebug() << QString::fromStdString(serverSHA256("1234"));
 
     if(id == string("qwerty") && pw_sha256_key == serverSHA256("1234")){
-        qDebug() << "로그인 성공";
+        qDebug() << QString::fromStdString("로그인 성공");
         return true;
     }
 
-    qDebug() << "로그인 실패";
+    qDebug() << QString::fromStdString("로그인 실패");
     return false;
 }

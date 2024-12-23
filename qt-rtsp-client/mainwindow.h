@@ -24,6 +24,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QMenu rightClickMenu;
-    MainViewModel mainVM;
+    MainViewModel *mainVM;
 };
 #endif // MAINWINDOW_H

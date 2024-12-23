@@ -5,8 +5,6 @@
 
 LoginViewModel::LoginViewModel(QObject* parent) : ViewModel(parent)
 {
-    //connect(this, &LoginViewModel::editIDChanged, this, &LoginViewModel::editIDChange);
-    //connect(this, &LoginViewModel::editPWChanged, this, &LoginViewModel::editPWChange);
 }
 
 string LoginViewModel::validateLogin(const string id, const string pw)

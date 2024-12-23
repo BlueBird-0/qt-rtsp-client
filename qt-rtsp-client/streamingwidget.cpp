@@ -17,7 +17,6 @@ StreamingWidget::StreamingWidget(const StreamingViewModel *streamingVM, QWidget 
 
 StreamingWidget::~StreamingWidget()
 {
-    qDebug("deleted Streaming Widget");
     delete ui;
 }
 

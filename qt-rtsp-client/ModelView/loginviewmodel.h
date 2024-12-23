@@ -3,16 +3,14 @@
 
 #include "viewmodel.h"
 #include <iostream>
-#include <functional>
-using namespace std;
 
 class LoginViewModel : public ViewModel
 {
     Q_OBJECT
 private:
     std::string m_id, m_pw;
-    string validateLogin(const string id, const string pw);
-    string hashSHA256(const QString& plainText);
+    std::string validateLogin(const std::string id, const std::string pw);
+    std::string hashSHA256(const QString& plainText);
 
 public:
     explicit LoginViewModel(QObject* parent = nullptr);

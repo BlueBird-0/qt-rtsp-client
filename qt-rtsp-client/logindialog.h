@@ -27,7 +27,7 @@ private slots:
 
 private:
     Ui::LoginDialog *ui;
-    LoginViewModel loginVM;
+    LoginViewModel* loginVM;
     //QString id, pw;
 };
 
