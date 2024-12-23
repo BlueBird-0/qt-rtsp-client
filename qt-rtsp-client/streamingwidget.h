@@ -14,14 +14,16 @@ class StreamingWidget : public QWidget
 
 public:
     explicit StreamingWidget(QWidget *parent = nullptr);
-    StreamingWidget(const StreamingViewModel *streamingVM, QWidget *parent = nullptr);
+    StreamingWidget(StreamingViewModel *streamingVM, QWidget *parent = nullptr);
     ~StreamingWidget();
 
 private:
     Ui::StreamingWidget *ui;
-    const StreamingViewModel *streamingVM;
+    StreamingViewModel *streamingVM;
 protected:
     void resizeEvent(QResizeEvent *event) override;
+private slots:
+    void on_btnUrlEnter_clicked();
 };
 
 #endif // STREAMINGWIDGET_H

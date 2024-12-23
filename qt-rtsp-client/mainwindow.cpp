@@ -23,7 +23,7 @@ void MainWindow:: showRightClickMenu(const QPoint& pos)
     rightClickMenu.exec(ui->mainTabWidget->mapToGlobal(pos));
 }
 
-void MainWindow::addStreamingWidget(const StreamingViewModel* newVM)
+void MainWindow::addStreamingWidget(StreamingViewModel* newVM)
 {
     StreamingWidget * newWidget = new StreamingWidget(newVM, this);
     ui->mdiArea->addSubWindow(newWidget);

@@ -12,7 +12,7 @@ public:
     explicit MainViewModel(QObject *parent = nullptr);
 
 signals:
-    void finishNewStreamingVM(const StreamingViewModel* newVM);
+    void finishNewStreamingVM(StreamingViewModel* newVM);
 
 public slots:
     void addNewStreamingVM();

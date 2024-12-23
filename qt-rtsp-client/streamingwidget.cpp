@@ -6,9 +6,19 @@ StreamingWidget::StreamingWidget(QWidget *parent)
     , ui(new Ui::StreamingWidget)
 {
     ui->setupUi(this);
+
+    // QLineEdit에 아이콘 추가
+    QLineEdit *lineEditURL = ui->editURL;
+    lineEditURL->setPlaceholderText("rtsp://localhost:8554"); // 힌트 텍스트 추가
+    QAction *iconActionURL = new QAction(lineEditURL);
+    iconActionURL->setIcon(QIcon(":/images/Resources/link_icon.png")); // 아이콘 경로 설정
+    lineEditURL->addAction(iconActionURL, QLineEdit::LeadingPosition);
+    static int widgetId=0;
+    setWindowTitle(QString::number(widgetId++));
+    lineEditURL->setFocus();
 }
 
-StreamingWidget::StreamingWidget(const StreamingViewModel *streamingVM, QWidget *parent)
+StreamingWidget::StreamingWidget(StreamingViewModel *streamingVM, QWidget *parent)
     : StreamingWidget(parent)
 {
     this->streamingVM = streamingVM;
@@ -37,3 +47,9 @@ void StreamingWidget::resizeEvent(QResizeEvent *event)
             );
     }
 }
+
+void StreamingWidget::on_btnUrlEnter_clicked()
+{
+    emit streamingVM->startStreaming(ui->editURL->text());
+}
+

@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     Model/loginmodel.cpp \
+    Model/rtpclient.cpp \
     ModelView/loginviewmodel.cpp \
     ModelView/mainviewmodel.cpp \
     ModelView/streamingviewmodel.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 
 HEADERS += \
     Model/loginmodel.h \
+    Model/rtpclient.h \
     ModelView/loginviewmodel.h \
     ModelView/mainviewmodel.h \
     ModelView/streamingviewmodel.h \
