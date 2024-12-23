@@ -4,5 +4,6 @@
         <file>Resources/login_icon.png</file>
         <file>Resources/login_pw_icon.png</file>
         <file>Resources/application_icon.png</file>
+        <file>Resources/streamingWidgetBackground.png</file>
     </qresource>
 </RCC>

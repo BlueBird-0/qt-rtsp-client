@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMenu>
+#include "ModelView/mainviewmodel.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,7 +17,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void showRightClickMenu(const QPoint& pos);
+    void addStreamingWidget(const StreamingViewModel* newVM);
+
 private:
     Ui::MainWindow *ui;
+    QMenu rightClickMenu;
+    MainViewModel mainVM;
 };
 #endif // MAINWINDOW_H

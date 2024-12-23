@@ -11,21 +11,28 @@ CONFIG += c++17
 SOURCES += \
     Model/loginmodel.cpp \
     ModelView/loginviewmodel.cpp \
+    ModelView/mainviewmodel.cpp \
+    ModelView/streamingviewmodel.cpp \
     ModelView/viewmodel.cpp \
     logindialog.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    streamingwidget.cpp
 
 HEADERS += \
     Model/loginmodel.h \
     ModelView/loginviewmodel.h \
+    ModelView/mainviewmodel.h \
+    ModelView/streamingviewmodel.h \
     ModelView/viewmodel.h \
     logindialog.h \
-    mainwindow.h
+    mainwindow.h \
+    streamingwidget.h
 
 FORMS += \
     logindialog.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    streamingwidget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
