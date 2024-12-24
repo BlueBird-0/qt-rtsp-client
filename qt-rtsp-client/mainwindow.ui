@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>821</width>
+    <width>997</width>
     <height>565</height>
    </rect>
   </property>
@@ -31,6 +31,9 @@
      <widget class="QSplitter" name="splitter">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="handleWidth">
+       <number>12</number>
       </property>
       <widget class="QTabWidget" name="mainTabWidget">
        <property name="sizePolicy">
@@ -126,7 +129,7 @@
       </widget>
       <widget class="QWidget" name="widget_2" native="true">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
@@ -158,6 +161,12 @@
           <item>
            <widget class="QTabWidget" name="tabWidget">
             <widget class="QWidget" name="Guid">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <attribute name="title">
               <string>Guid</string>
              </attribute>
@@ -171,16 +180,6 @@
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>821</width>
-     <height>20</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNew_Tab">
