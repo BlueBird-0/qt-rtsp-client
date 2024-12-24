@@ -15,8 +15,10 @@ StreamingWidget::StreamingWidget(QWidget *parent)
     QAction *iconActionURL = new QAction(lineEditURL);
     iconActionURL->setIcon(QIcon(":/images/Resources/link_icon.png")); // 아이콘 경로 설정
     lineEditURL->addAction(iconActionURL, QLineEdit::LeadingPosition);
-    static int widgetId=0;
-    setWindowTitle(QString::number(widgetId++));
+
+    static int streamingWidgetId = 0;
+    setWindowTitle(QString("New Tab") + QString::number(streamingWidgetId+1));
+    this->streamingWidgetId = streamingWidgetId++;
     lineEditURL->setFocus();
 }
 

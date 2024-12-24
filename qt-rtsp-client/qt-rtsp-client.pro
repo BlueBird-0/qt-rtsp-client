@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     Model/login.cpp \
     Model/rtpclient.cpp \
+    ModelView/debugviewmodel.cpp \
     ModelView/loginviewmodel.cpp \
     ModelView/mainviewmodel.cpp \
     ModelView/rtpclientviewmodel.cpp \
     ModelView/streamingviewmodel.cpp \
     ModelView/viewmodel.cpp \
+    debugwidget.cpp \
     logindialog.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -24,16 +26,19 @@ SOURCES += \
 HEADERS += \
     Model/login.h \
     Model/rtpclient.h \
+    ModelView/debugviewmodel.h \
     ModelView/loginviewmodel.h \
     ModelView/mainviewmodel.h \
     ModelView/rtpclientviewmodel.h \
     ModelView/streamingviewmodel.h \
     ModelView/viewmodel.h \
+    debugwidget.h \
     logindialog.h \
     mainwindow.h \
     streamingwidget.h
 
 FORMS += \
+    debugwidget.ui \
     logindialog.ui \
     mainwindow.ui \
     streamingwidget.ui

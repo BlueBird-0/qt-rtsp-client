@@ -6,5 +6,8 @@
         <file>Resources/application_icon.png</file>
         <file>Resources/streamingWidgetBackground.png</file>
         <file>Resources/link_icon.png</file>
+        <file>Resources/restart_icon.png</file>
+        <file>Resources/pause_icon.png</file>
+        <file>Resources/disconnect_icon.png</file>
     </qresource>
 </RCC>

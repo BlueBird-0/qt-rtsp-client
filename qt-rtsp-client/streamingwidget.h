@@ -13,6 +13,7 @@ class StreamingWidget : public QWidget
     Q_OBJECT
 
 public:
+    int streamingWidgetId = 0;
     StreamingWidget(StreamingViewModel *streamingVM, QWidget *parent = nullptr);
     ~StreamingWidget();
 

@@ -1,5 +1,7 @@
 #include "mainviewmodel.h"
 #include "streamingviewmodel.h"
+#include "debugviewmodel.h"
+#include "ModelView/rtpclientviewmodel.h"
 #include <QDebug>
 
 MainViewModel::MainViewModel(QObject *parent)
@@ -8,9 +10,14 @@ MainViewModel::MainViewModel(QObject *parent)
 
 }
 
-void MainViewModel::addNewStreamingVM()
+void MainViewModel::addNewTabVM()
 {
-    StreamingViewModel* newVM = new StreamingViewModel();
-    streamingVMVector.push_back(newVM);
-    emit finishNewStreamingVM(newVM);
+    StreamingViewModel* newStreamVM = new StreamingViewModel();
+    streamingVMVector.push_back(newStreamVM);
+
+    DebugViewModel* newDebugVM = new DebugViewModel();
+    debugVMVector.push_back(newDebugVM);
+
+    emit finishNewStreamingVM(newStreamVM);
+    emit finishNewDebugVM(newDebugVM);
 }

@@ -20,6 +20,7 @@ public:
 private slots:
     void showRightClickMenu(const QPoint& pos);
     void addStreamingWidget(StreamingViewModel* newVM);
+    void addDebugWidget(DebugViewModel* newVM);
 
 private:
     Ui::MainWindow *ui;

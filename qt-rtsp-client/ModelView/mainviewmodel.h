@@ -2,23 +2,26 @@
 #define MAINVIEWMODEL_H
 
 #include "viewmodel.h"
-#include "streamingviewmodel.h"
 #include <vector>
+class StreamingViewModel;
+class DebugViewModel;
 
 class MainViewModel : public ViewModel
 {
     Q_OBJECT
 public:
+    std::vector<StreamingViewModel*> streamingVMVector;
+    std::vector<DebugViewModel*> debugVMVector;
     explicit MainViewModel(QObject *parent = nullptr);
 
 signals:
     void finishNewStreamingVM(StreamingViewModel* newVM);
+    void finishNewDebugVM(DebugViewModel* newVM);
 
 public slots:
-    void addNewStreamingVM();
+    void addNewTabVM();
 
 private:
-    std::vector<StreamingViewModel*> streamingVMVector;
 };
 
 #endif // MAINVIEWMODEL_H

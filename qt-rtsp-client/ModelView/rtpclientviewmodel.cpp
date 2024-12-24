@@ -6,6 +6,10 @@
 #include <QLabel>
 #include <QDir>
 #include <QPainter>
+#include <QLineEdit>
+#include <QElapsedTimer>
+#include <QTimer>
+#include <QTime>
 
 RtpClientViewModel::RtpClientViewModel() {
     buffer = new QByteArray;
@@ -27,6 +31,7 @@ RtpClientViewModel::~RtpClientViewModel()
 
 void RtpClientViewModel::callStreamingFinish()
 {
+    updateTimer->stop(); // 1초마다 경과 시간 업데이트
     emit signal_streaming_finish();
 }
 
@@ -87,11 +92,25 @@ void RtpClientViewModel::readFFmpegOutput() {
     }
 }
 
+void RtpClientViewModel::updateElapsedTime()
+{
+    // 경과 시간 계산 및 표시
+    qint64 elapsedMs = elapsedTimer->elapsed();
+    QTime time = QTime(0, 0).addMSecs(elapsedMs);
+
+    duration->setText(time.toString("hh:mm:ss"));
+}
+
 void RtpClientViewModel::startFFmpegProcess(QString url) {
     ffmpegProcess = new QProcess();
-
     //  FFmpeg
     ffmpegProcess->start(RtpClient::getProgram(), RtpClient::getArguments(url));
+
+    // set Timer
+    elapsedTimer = new QElapsedTimer();
+    updateTimer = new QTimer(this);
+
+    connect(updateTimer, &QTimer::timeout, this, &RtpClientViewModel::updateElapsedTime);
 
     connect(ffmpegProcess, &QProcess::readyReadStandardError, this, [this]() {
         QByteArray errorOutput = ffmpegProcess->readAllStandardError();
@@ -112,6 +131,8 @@ void RtpClientViewModel::startFFmpegProcess(QString url) {
     } else {
         qDebug() << "FFmpeg ...";
         emit signal_streaming_start();
+        elapsedTimer->start(); // 경과 시간 타이머 시작
+        updateTimer->start(1000); // 1초마다 경과 시간 업데이트
         connect(ffmpegProcess, SIGNAL(readyReadStandardOutput()), this, SLOT(readFFmpegOutput()));
         connect(ffmpegProcess, SIGNAL(finished(int)), this, SLOT(callStreamingFinish()));
     }
