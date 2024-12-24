@@ -1,5 +1,7 @@
 #include "streamingwidget.h"
 #include "ui_streamingwidget.h"
+#include <QAction>
+#include "ModelView/rtpclientviewmodel.h"
 
 StreamingWidget::StreamingWidget(QWidget *parent)
     : QWidget(parent)
@@ -21,12 +23,19 @@ StreamingWidget::StreamingWidget(QWidget *parent)
 StreamingWidget::StreamingWidget(StreamingViewModel *streamingVM, QWidget *parent)
     : StreamingWidget(parent)
 {
+    streamingVM->rtpClientVM->setVideoLabel(ui->video_label);
     this->streamingVM = streamingVM;
+
+    connect(streamingVM->rtpClientVM, &RtpClientViewModel::signal_streaming_start, this, [this]()->void{ ui->widget->hide(); });
+    connect(streamingVM->rtpClientVM, &RtpClientViewModel::signal_streaming_fail, this, [this]()->void{ ui->widget->show(); });
+    connect(streamingVM->rtpClientVM, &RtpClientViewModel::signal_streaming_finish, this, [this]()->void{ ui->widget->show();} );
+
 }
 
 
 StreamingWidget::~StreamingWidget()
 {
+    delete streamingVM;
     delete ui;
 }
 

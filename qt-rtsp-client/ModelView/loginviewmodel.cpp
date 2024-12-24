@@ -1,5 +1,5 @@
 #include "loginviewmodel.h"
-#include "Model/loginmodel.h"
+#include "Model/login.h"
 #include <QDebug>
 #include <QCryptographicHash>
 
@@ -50,7 +50,7 @@ void LoginViewModel::editPWChanged(const QString &arg1)
 
 void LoginViewModel::btnLoginClicked()
 {
-    bool success = LoginModel::login(m_id, hashSHA256(QString(m_pw.c_str())), std::string("localhost"));
+    bool success = Login::login(m_id, hashSHA256(QString(m_pw.c_str())), std::string("localhost"));
     if(success)
         emit loginSucess();
     else

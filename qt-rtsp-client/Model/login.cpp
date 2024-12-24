@@ -1,20 +1,19 @@
-#include "loginmodel.h"
+#include "login.h"
 #include <cstring>
 #include <QDebug>
 #include <QCryptographicHash>
 #include <QByteArray>
 
-LoginModel::LoginModel() {}
+Login::Login() {}
 
-
-string LoginModel::serverSHA256(const string& plain)
+string Login::serverSHA256(const string& plain)
 {
     QByteArray plainArray = QString::fromStdString(plain).toUtf8();
     QByteArray hash = QCryptographicHash::hash(plainArray, QCryptographicHash::Sha256);
     return hash.toStdString();
 }
 
-bool LoginModel::login(string id, string pw_sha256_key, string server_address)
+bool Login::login(string id, string pw_sha256_key, string server_address)
 {
     qDebug() << QString::fromStdString(pw_sha256_key);
     qDebug() << QString::fromStdString(serverSHA256("1234"));

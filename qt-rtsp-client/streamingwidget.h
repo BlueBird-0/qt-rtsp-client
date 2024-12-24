@@ -13,11 +13,11 @@ class StreamingWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit StreamingWidget(QWidget *parent = nullptr);
     StreamingWidget(StreamingViewModel *streamingVM, QWidget *parent = nullptr);
     ~StreamingWidget();
 
 private:
+    explicit StreamingWidget(QWidget *parent = nullptr);
     Ui::StreamingWidget *ui;
     StreamingViewModel *streamingVM;
 protected:

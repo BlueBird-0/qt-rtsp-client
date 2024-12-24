@@ -1,16 +1,20 @@
 #include "streamingviewmodel.h"
-#include "Model/rtpclient.h"
+#include "rtpclientviewmodel.h"
 #include <QDebug>
 
 StreamingViewModel::StreamingViewModel(QObject *parent)
     : ViewModel{parent}
 {
-    rtpClient = new RtpClient();
+    rtpClientVM = new RtpClientViewModel();
+}
+
+StreamingViewModel::~StreamingViewModel()
+{
+    delete rtpClientVM;
 }
 
 void StreamingViewModel::startStreaming(const QString &url)
 {
-    qDebug() << "startStreaming";
-    rtpClient->startFFmpegProcess(url);
+    rtpClientVM->startFFmpegProcess(url);
 }
 

@@ -1,14 +1,14 @@
-#ifndef LOGINMODEL_H
-#define LOGINMODEL_H
+#ifndef LOGIN_H
+#define LOGIN_H
 #include <iostream>
 using namespace std;
 
-class LoginModel
+class Login
 {
 public:
-    LoginModel();
+    Login();
     static string serverSHA256(const string& plain);
     static bool login(string id, string pw_sha256_key, string server_address="localhost");
 };
 
-#endif // LOGINMODEL_H
+#endif // LOGIN_H

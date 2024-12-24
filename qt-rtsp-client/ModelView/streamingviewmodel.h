@@ -2,16 +2,17 @@
 #define STREAMINGVIEWMODEL_H
 
 #include "viewmodel.h"
-class RtpClient;
+class RtpClientViewModel;
 
 class StreamingViewModel : public ViewModel
 {
     Q_OBJECT
 private:
-    RtpClient* rtpClient;
 
 public:
+    RtpClientViewModel* rtpClientVM;
     explicit StreamingViewModel(QObject *parent = nullptr);
+    ~StreamingViewModel();
 
 public slots:
     void startStreaming(const QString &url);

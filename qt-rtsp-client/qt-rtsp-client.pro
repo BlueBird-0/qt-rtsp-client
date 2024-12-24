@@ -9,10 +9,11 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    Model/loginmodel.cpp \
+    Model/login.cpp \
     Model/rtpclient.cpp \
     ModelView/loginviewmodel.cpp \
     ModelView/mainviewmodel.cpp \
+    ModelView/rtpclientviewmodel.cpp \
     ModelView/streamingviewmodel.cpp \
     ModelView/viewmodel.cpp \
     logindialog.cpp \
@@ -21,10 +22,11 @@ SOURCES += \
     streamingwidget.cpp
 
 HEADERS += \
-    Model/loginmodel.h \
+    Model/login.h \
     Model/rtpclient.h \
     ModelView/loginviewmodel.h \
     ModelView/mainviewmodel.h \
+    ModelView/rtpclientviewmodel.h \
     ModelView/streamingviewmodel.h \
     ModelView/viewmodel.h \
     logindialog.h \
