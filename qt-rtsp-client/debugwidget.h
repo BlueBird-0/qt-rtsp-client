@@ -8,6 +8,7 @@ namespace Ui {
 class DebugWidget;
 }
 class QLineEdit;
+class QPlainTextEdit;
 
 class DebugWidget : public QWidget
 {
@@ -18,6 +19,7 @@ public:
     DebugWidget(DebugViewModel *debugVM, QWidget *parent = nullptr);
     ~DebugWidget();
     QLineEdit* getDurationPtr();
+    QPlainTextEdit* getDebugTextPtr();
 private:
     Ui::DebugWidget *ui;
     explicit DebugWidget(QWidget *parent = nullptr);

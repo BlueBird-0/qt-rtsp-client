@@ -7,6 +7,7 @@ class QLabel;
 class QLineEdit;
 class QElapsedTimer;
 class QTimer;
+class QPlainTextEdit;
 
 class RtpClientViewModel : public ViewModel
 {
@@ -21,6 +22,8 @@ public:
     void finishFfmpeg();
     void setVideoLabel(QLabel* labelPtr) { this->videoLabel = labelPtr; }
     void setDurationLabel(QLineEdit* labelPtr) { this->duration = labelPtr; }
+    void setDebugText(QPlainTextEdit* plainTextEdit) { this->debugText = plainTextEdit; }
+    QPlainTextEdit* getDebugText() { return this->debugText; }
 
 private:
 //    RtpClient rtpClient;
@@ -30,6 +33,7 @@ private:
     QLineEdit *duration = nullptr;
     QElapsedTimer* elapsedTimer = nullptr;
     QTimer* updateTimer = nullptr;
+    QPlainTextEdit* debugText = nullptr;
 
 signals:
     void signal_ffmpeg_debug(QString, RtpClientViewModel*);

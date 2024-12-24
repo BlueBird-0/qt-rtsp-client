@@ -28,3 +28,8 @@ QLineEdit *DebugWidget::getDurationPtr()
 {
     return ui->lineEditDuration;
 }
+
+QPlainTextEdit *DebugWidget::getDebugTextPtr()
+{
+    return ui->plainTextDebugEdit;
+}

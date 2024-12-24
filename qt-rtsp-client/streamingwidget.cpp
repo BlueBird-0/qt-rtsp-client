@@ -31,7 +31,6 @@ StreamingWidget::StreamingWidget(StreamingViewModel *streamingVM, QWidget *paren
     connect(streamingVM->rtpClientVM, &RtpClientViewModel::signal_streaming_start, this, [this]()->void{ ui->widget->hide(); });
     connect(streamingVM->rtpClientVM, &RtpClientViewModel::signal_streaming_fail, this, [this]()->void{ ui->widget->show(); });
     connect(streamingVM->rtpClientVM, &RtpClientViewModel::signal_streaming_finish, this, [this]()->void{ ui->widget->show();} );
-
 }
 
 

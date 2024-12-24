@@ -47,7 +47,13 @@ void MainWindow::addDebugWidget(DebugViewModel* newVM)
         if (tabIndex != -1) {
             ui->tabWidget->removeTab(tabIndex);
         }
-    });
+    } );
+
+    //debug Text 동적 연결
+    mainVM->streamingVMVector.back()->rtpClientVM->setDebugText(newDebugTabWidget->getDebugTextPtr());
+//    connect(mainVM->streamingVMVector.back()->rtpClientVM, &RtpClientViewModel::signal_ffmpeg_debug, this, []()->void{
+//    } );
+    connect(mainVM->streamingVMVector.back()->rtpClientVM, &RtpClientViewModel::signal_ffmpeg_debug, newVM, &DebugViewModel::writeDebug);
 }
 
 MainWindow::~MainWindow()
