@@ -7,6 +7,9 @@ VMMV 구조를 따르는 Qt Client 예시 프로그램 입니다.
 
 [RTSPserver on Linux](https://github.com/rtspMediaStream/raspberrypi5-rtsp-server)
 
+## VMMV struct Class Diagram
+![PrivateTech drawio](https://github.com/user-attachments/assets/8a2a63cf-d102-4ad6-bbbe-f28f3b2d9257)
+
 ## License
 이 프로젝트는 MIT License를 따릅니다. 수정/배포 를 환영합니다.
 
