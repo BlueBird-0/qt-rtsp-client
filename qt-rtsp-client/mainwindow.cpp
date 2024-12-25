@@ -56,7 +56,7 @@ void MainWindow::setupPlainTextEditInWidget(QWidget* parentWidget) {
     // 초기 텍스트 (선택사항)
     plainTextEdit->setPlainText("This is Qt example Client!\n"
                                 "Qt로 개발한 예시용 클라이언트 입니다.\n"
-                                "VMMV 구조로 개발되었습니다.\n\n\n"
+                                "MVVM 구조로 개발되었습니다.\n\n\n"
                                 "-- 설명 --\n"
                                 "Video 실시간 스트리밍을 수행합니다.\n"
                                 "내부적으로 RTSP 를 사용합니다. 따라서 영상 테스트를 위해서 RTSP 서버가 필요합니다.\n\n\n"

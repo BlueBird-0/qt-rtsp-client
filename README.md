@@ -1,6 +1,6 @@
 ## Preview
 Video Streaming Client Example
-이 프로그램은 VMMV 구조를 따르는 Qt Client 예시 프로그램 입니다.
+이 프로그램은 MVVM 구조를 따르는 Qt Client 예시 프로그램 입니다.
 ![simplescreenrecorder-2024-12-25_03(1)](https://github.com/user-attachments/assets/ff05e43f-a83b-4012-84a6-560e92813e83)
 
 내부적으로 RTSP를 사용합니다. 따라서 영상을 전송하는 RTSP server가 필요합니다. [RTSPserver on Linux](https://github.com/rtspMediaStream/raspberrypi5-rtsp-server)
@@ -11,7 +11,7 @@ Video Streaming Client Example
     <img src="https://github.com/user-attachments/assets/43ca6966-c8fb-4bf9-b57d-e090ea90d878" alt="rtspView" style="height: 300px; width: auto; object-fit: contain;">
 </div>
 
-## VMMV struct Class Diagram
+## MVVM struct Class Diagram
 ![PrivateTech drawio](https://github.com/user-attachments/assets/8a2a63cf-d102-4ad6-bbbe-f28f3b2d9257)
 
 
